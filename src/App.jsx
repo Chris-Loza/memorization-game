@@ -1,9 +1,12 @@
 import "./App.css";
+import Homepage from "./Components/Homepage/Homepage";
 
 function App() {
   return (
     <>
-      <div>Memorization Game</div>
+      <div className="homepageContainer">
+        <Homepage />
+      </div>
     </>
   );
 }
