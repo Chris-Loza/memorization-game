@@ -6,3 +6,12 @@
   "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
   font-size: 16px;
 }
+
+body {
+  height: 100svh;
+  width: 100vw;
+}
+
+.homepageContainer {
+  border: 1px solid red;
+}
