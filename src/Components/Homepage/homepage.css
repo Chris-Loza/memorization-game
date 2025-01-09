@@ -31,10 +31,16 @@
         }
 
         .squareGridContainer {
-            border: 1px solid black;
             margin: auto;
             height: 90%;
             width: 90%;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 0.25rem;
+            border-radius: 0.5rem;
+            background-color: #171616;
+            border: 5px solid #D9d9d9;
+            position: relative;
         }
     }
 
