@@ -10,9 +10,19 @@
         align-items: center;
         justify-content: flex-end;
 
-        p {
-            margin-right: 1rem;
-            cursor: pointer;
+        a {
+            text-decoration: none;
+            color: black;
+
+            &:hover {
+                color: white;
+            }
+
+            p {
+                margin-right: 1rem;
+                cursor: pointer;
+                font-weight: bold;
+            }
         }
     }
 

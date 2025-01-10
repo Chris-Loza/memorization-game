@@ -27,7 +27,13 @@ const Homepage = () => {
     <>
       <div className="parentContainer">
         <div className="headerContainer">
-          <p>Hire Me</p>
+          <a
+            href="../../../public/images/FinalResume112524.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <p>Hire Me</p>
+          </a>
         </div>
         <div className="gameContainer">
           <p>
@@ -50,24 +56,31 @@ const Homepage = () => {
         </div>
         <div className="footerContainer">
           <div className="myLinks">
-            <img
-              src="../../../public/images/githubicon.svg"
-              alt="Github"
-              width={"40px"}
-            />
-            <div className="linkedInImgContainer">
+            <a
+              href="https://github.com/Chris-Loza?tab=repositories"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <img
-                src="../../../public/images/linkedInIconBlack.svg"
-                alt="LinkedIn"
-                className="linkedIn"
+                src="../../../public/images/githubicon.svg"
+                alt="Github"
                 width={"40px"}
               />
+            </a>
+            <div className="linkedInImgContainer">
+              <a
+                href="https://www.linkedin.com/in/christianloza/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <img
+                  src="../../../public/images/linkedInIconBlack.svg"
+                  alt="LinkedIn"
+                  className="linkedIn"
+                  width={"40px"}
+                />
+              </a>
             </div>
-            <img
-              src="../../../public/images/emailIconBlack.png"
-              alt="Email"
-              width={"40px"}
-            />
           </div>
         </div>
       </div>
