@@ -20,7 +20,7 @@ const Homepage = () => {
   useEffect(() => {
     const randomizedColors = colors.sort(() => Math.random() - 0.5);
     setColorArray(randomizedColors);
-  }, [])
+  }, []);
 
   console.log(colorArray);
   return (
@@ -49,7 +49,26 @@ const Homepage = () => {
           </p>
         </div>
         <div className="footerContainer">
-          <div className="myLinks">My Links</div>
+          <div className="myLinks">
+            <img
+              src="../../../public/images/githubicon.svg"
+              alt="Github"
+              width={"40px"}
+            />
+            <div className="linkedInImgContainer">
+              <img
+                src="../../../public/images/linkedInIconBlack.svg"
+                alt="LinkedIn"
+                className="linkedIn"
+                width={"40px"}
+              />
+            </div>
+            <img
+              src="../../../public/images/emailIconBlack.png"
+              alt="Email"
+              width={"40px"}
+            />
+          </div>
         </div>
       </div>
     </>

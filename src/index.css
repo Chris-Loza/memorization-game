@@ -11,9 +11,4 @@ body {
   height: 100svh;
   width: 100vw;
   background-color: #676666;
-  color: white;
-}
-
-.homepageContainer {
-  border: 1px solid red;
 }
