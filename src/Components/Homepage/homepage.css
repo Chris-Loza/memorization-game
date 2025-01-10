@@ -54,7 +54,8 @@
         display: flex;
         align-items: center;
         justify-content: flex-start;
-        
+        position: relative;
+
         .myLinks {
             margin-left: 1rem;
             cursor: pointer;
@@ -62,6 +63,27 @@
             align-items: center;
             justify-content: center;
             gap: 0.25rem;
+        }
+
+        .startStopButton {
+            position: absolute;
+            left: 45%;
+
+            button {
+                font-weight: bold;
+                outline: none;
+                border: none;
+                border-radius: 1rem;
+                width: 8rem;
+                background-color: #5fc9f8;
+                color: white;
+                padding: 0.25rem;
+
+                &.stopButton {
+                    background-color: #fc3d39;
+                    color: black;
+                }
+            }
         }
     }
 }

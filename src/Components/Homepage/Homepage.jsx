@@ -6,6 +6,7 @@ const Homepage = () => {
   const [colorArray, setColorArray] = useState([]);
   const [roundNumber, setRoundNumber] = useState(0);
   const [highestRoundNumber, setHighestRoundNumber] = useState(1000);
+  const [gameRunning, setGameRunning] = useState(false);
 
   const colors = [
     "#FF0000",
@@ -24,6 +25,10 @@ const Homepage = () => {
     setColorArray(randomizedColors);
   }, []);
 
+  const handleGameToggle = () => {
+    setGameRunning(!gameRunning);
+  };
+
   console.log(colorArray);
   return (
     <>
@@ -39,7 +44,8 @@ const Homepage = () => {
         </div>
         <div className="gameContainer">
           <p>
-            <b>Round: </b>{roundNumber}
+            <b>Round: </b>
+            {roundNumber}
           </p>
           <div className="squareGridContainer">
             <Square hexCode={colorArray[0]} />
@@ -53,7 +59,8 @@ const Homepage = () => {
             <Square hexCode={colorArray[8]} />
           </div>
           <p>
-            <b>Highest Round: </b>{highestRoundNumber}
+            <b>Highest Round: </b>
+            {highestRoundNumber}
           </p>
         </div>
         <div className="footerContainer">
@@ -83,6 +90,14 @@ const Homepage = () => {
                 />
               </a>
             </div>
+          </div>
+          <div className="startStopButton">
+            <button
+              className={gameRunning ? "stopButton" : "startButton"}
+              onClick={handleGameToggle}
+            >
+              {gameRunning ? "Stop" : "Start"}
+            </button>
           </div>
         </div>
       </div>
