@@ -1,9 +1,11 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./homepage.css";
 import Square from "../Square/Square";
 
 const Homepage = () => {
-  const colorArray = [
+  const [colorArray, setColorArray] = useState([]);
+
+  const colors = [
     "#FF0000",
     "#00FF00",
     "#0000FF",
@@ -15,6 +17,12 @@ const Homepage = () => {
     "#FFC0CB",
   ];
 
+  useEffect(() => {
+    const randomizedColors = colors.sort(() => Math.random() - 0.5);
+    setColorArray(randomizedColors);
+  }, [])
+
+  console.log(colorArray);
   return (
     <>
       <div className="parentContainer">
