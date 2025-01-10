@@ -5,13 +5,46 @@
     background-color: #D9D9D9;
 
     .square {
+        background-color: #D9D9D9;
         border: 1px solid black;
         height: 85%;
         width: 85%;
         cursor: pointer;
-        
+
         &.red {
             background-color: #FF0000;
+        }
+
+        &.green {
+            background-color: #00FF00;
+        }
+
+        &.blue {
+            background-color: #0000FF;
+        }
+
+        &.yellow {
+            background-color: #FFFF00;
+        }
+
+        &.purple {
+            background-color: #800080;
+        }
+
+        &.orange {
+            background-color: #FFA500;
+        }
+
+        &.brown {
+            background-color: #964B00;
+        }
+
+        &.gray {
+            background-color: #808080;
+        }
+
+        &.pink {
+            background-color: #FFC0CB;
         }
     }
 }
