@@ -10,5 +10,6 @@
 body {
   height: 100svh;
   width: 100vw;
-  background-color: #676666;
+  /* background-color: #676666; */
+  background-color: white;
 }

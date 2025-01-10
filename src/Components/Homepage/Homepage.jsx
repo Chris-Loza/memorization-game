@@ -4,6 +4,8 @@ import Square from "../Square/Square";
 
 const Homepage = () => {
   const [colorArray, setColorArray] = useState([]);
+  const [roundNumber, setRoundNumber] = useState(0);
+  const [highestRoundNumber, setHighestRoundNumber] = useState(1000);
 
   const colors = [
     "#FF0000",
@@ -37,7 +39,7 @@ const Homepage = () => {
         </div>
         <div className="gameContainer">
           <p>
-            <b>Round: </b>#
+            <b>Round: </b>{roundNumber}
           </p>
           <div className="squareGridContainer">
             <Square hexCode={colorArray[0]} />
@@ -51,7 +53,7 @@ const Homepage = () => {
             <Square hexCode={colorArray[8]} />
           </div>
           <p>
-            <b>Highest Round: </b>#
+            <b>Highest Round: </b>{highestRoundNumber}
           </p>
         </div>
         <div className="footerContainer">
