@@ -20,10 +20,6 @@ const Homepage = () => {
     "#FFC0CB",
   ];
 
-  // useEffect(() => {
-  //   const randomizedColors = colors.sort(() => Math.random() - 0.5);
-  //   setColorArray(randomizedColors);
-  // }, []);
 
   const handleGameToggle = () => {
     if (!gameRunning) {
@@ -33,8 +29,6 @@ const Homepage = () => {
       setColorArray([]);
     }
     setGameRunning(!gameRunning);
-    // const randomizedColors = colors.sort(() => Math.random() - 0.5);
-    // setColorArray(randomizedColors);
   };
 
   console.log(colorArray);
@@ -99,12 +93,17 @@ const Homepage = () => {
               </a>
             </div>
           </div>
-          <div className="startStopButton">
+          <div className="startStopSubmitButton">
             <button
               className={gameRunning ? "stopButton" : "startButton"}
               onClick={handleGameToggle}
             >
               {gameRunning ? "Stop" : "Start"}
+            </button>
+            <button
+              className="submitButton"
+            >
+              Submit
             </button>
           </div>
         </div>
