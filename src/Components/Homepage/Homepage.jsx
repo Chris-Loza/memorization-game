@@ -20,13 +20,21 @@ const Homepage = () => {
     "#FFC0CB",
   ];
 
-  useEffect(() => {
-    const randomizedColors = colors.sort(() => Math.random() - 0.5);
-    setColorArray(randomizedColors);
-  }, []);
+  // useEffect(() => {
+  //   const randomizedColors = colors.sort(() => Math.random() - 0.5);
+  //   setColorArray(randomizedColors);
+  // }, []);
 
   const handleGameToggle = () => {
+    if (!gameRunning) {
+      const randomizedColors = colors.sort(() => Math.random() - 0.5);
+      setColorArray(randomizedColors);
+    } else {
+      setColorArray([]);
+    }
     setGameRunning(!gameRunning);
+    // const randomizedColors = colors.sort(() => Math.random() - 0.5);
+    // setColorArray(randomizedColors);
   };
 
   console.log(colorArray);
