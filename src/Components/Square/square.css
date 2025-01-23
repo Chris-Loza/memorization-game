@@ -46,6 +46,11 @@
         &.pink {
             background-color: #FFC0CB;
         }
+
+        &.flash {
+            -webkit-animation: flash linear 1.5s infinite;
+            animation: flash linear 1.5s infinite; 
+        }
     }
 }
 
@@ -60,6 +65,3 @@
     50% {opacity: 0;}
     100% {opacity: 1;}
 }
-
-/* -webkit-animation: flash linear 1.5s infinite;
-animation: flash linear 1.5s infinite;  */
