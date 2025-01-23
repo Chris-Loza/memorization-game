@@ -70,7 +70,7 @@
             left: 38.75%;
             display: flex;
             gap: 1rem;
-            
+
             button {
                 cursor: pointer;
                 font-weight: bold;
