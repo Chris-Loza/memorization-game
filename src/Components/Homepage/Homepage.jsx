@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useState } from "react";
 import "./homepage.css";
 import Square from "../Square/Square";
 
@@ -19,7 +19,6 @@ const Homepage = () => {
     "#808080",
     "#FFC0CB",
   ];
-
 
   const handleGameToggle = () => {
     if (!gameRunning) {
@@ -100,11 +99,7 @@ const Homepage = () => {
             >
               {gameRunning ? "Stop" : "Start"}
             </button>
-            <button
-              className="submitButton"
-            >
-              Submit
-            </button>
+            <button className="submitButton">Submit</button>
           </div>
         </div>
       </div>
