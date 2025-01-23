@@ -38,7 +38,7 @@ const Square = ({ hexCode }) => {
 
   return (
     <div className="squareContainer">
-      <div className={`square ${squareColor} flash`}></div>
+      <div className={`square ${squareColor}`}></div>
     </div>
   );
 };
