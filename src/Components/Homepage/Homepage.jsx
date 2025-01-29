@@ -1,12 +1,14 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import "./homepage.css";
 import Square from "../Square/Square";
+import { GlobalContext } from "../../library/globalstate";
 
 const Homepage = () => {
   const [colorArray, setColorArray] = useState([]);
   const [roundNumber, setRoundNumber] = useState(0);
   const [highestRoundNumber, setHighestRoundNumber] = useState(1000);
   const [gameRunning, setGameRunning] = useState(false);
+  const { orderArray, comparisonArray } = useContext(GlobalContext)
 
   const colors = [
     "#FF0000",
@@ -30,7 +32,6 @@ const Homepage = () => {
     setGameRunning(!gameRunning);
   };
 
-  console.log(colorArray);
   return (
     <>
       <div className="parentContainer">
@@ -72,7 +73,7 @@ const Homepage = () => {
               rel="noopener noreferrer"
             >
               <img
-                src="../../../public/images/githubicon.svg"
+                src="../../../images/githubicon.svg"
                 alt="Github"
                 width={"40px"}
               />
@@ -84,7 +85,7 @@ const Homepage = () => {
                 rel="noopener noreferrer"
               >
                 <img
-                  src="../../../public/images/linkedInIconBlack.svg"
+                  src="../../../images/linkedInIconBlack.svg"
                   alt="LinkedIn"
                   className="linkedIn"
                   width={"40px"}
