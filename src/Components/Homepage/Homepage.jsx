@@ -8,7 +8,8 @@ const Homepage = () => {
   const [roundNumber, setRoundNumber] = useState(0);
   const [highestRoundNumber, setHighestRoundNumber] = useState(1000);
   const [gameRunning, setGameRunning] = useState(false);
-  const { orderArray, comparisonArray } = useContext(GlobalContext)
+  const { orderArray, setOrderArray, comparisonArray, setComparisonArray } =
+    useContext(GlobalContext);
 
   const colors = [
     "#FF0000",
@@ -25,13 +26,17 @@ const Homepage = () => {
   const handleGameToggle = () => {
     if (!gameRunning) {
       const randomizedColors = colors.sort(() => Math.random() - 0.5);
+      const initialOrderArray = Array.from({ length: 3 }, () =>
+        Math.floor(Math.random() * 9)
+      );
+      setOrderArray(initialOrderArray);
       setColorArray(randomizedColors);
     } else {
       setColorArray([]);
     }
     setGameRunning(!gameRunning);
   };
-
+  
   return (
     <>
       <div className="parentContainer">

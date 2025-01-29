@@ -5,8 +5,8 @@ export const GlobalContext = createContext();
 
 // Create the provider component
 export const GlobalProvider = ({ children }) => {
-  const [orderArray, setOrderArray] = useState(["Order Array"]);
-  const [comparisonArray, setComparisonArray] = useState(["Comparison Array"]);
+  const [orderArray, setOrderArray] = useState([]);
+  const [comparisonArray, setComparisonArray] = useState([]);
 
   return (
     <GlobalContext.Provider
