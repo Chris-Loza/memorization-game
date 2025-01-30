@@ -1,9 +1,14 @@
-import React from "react";
+import { GlobalContext } from "../../library/globalstate";
 import "./square.css";
+import { useContext, useState } from "react";
 
-const Square = ({ hexCode }) => {
+const Square = ({ hexCode, index }) => {
+  const { orderArray, setOrderArray, comparisonArray, setComparisonArray } =
+    useContext(GlobalContext);
+  const [flash, setFlash] = useState(false);
+  console.log(index);
+
   let squareColor;
-  // const hexCode = "#00FF00";
   switch (hexCode) {
     case "#FF0000":
       squareColor = "red";
@@ -38,7 +43,7 @@ const Square = ({ hexCode }) => {
 
   return (
     <div className="squareContainer">
-      <div className={`square ${squareColor}`}></div>
+      <div className={`square ${squareColor} ${flash ? "flash" : ""}`}></div>
     </div>
   );
 };
