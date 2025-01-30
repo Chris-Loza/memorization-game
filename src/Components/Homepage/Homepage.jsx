@@ -36,7 +36,7 @@ const Homepage = () => {
     }
     setGameRunning(!gameRunning);
   };
-  
+
   return (
     <>
       <div className="parentContainer">
@@ -55,15 +55,14 @@ const Homepage = () => {
             {roundNumber}
           </p>
           <div className="squareGridContainer">
-            <Square hexCode={colorArray[0]} index={0} />
-            <Square hexCode={colorArray[1]} index={1} />
-            <Square hexCode={colorArray[2]} index={2} />
-            <Square hexCode={colorArray[3]} index={3} />
-            <Square hexCode={colorArray[4]} index={4} />
-            <Square hexCode={colorArray[5]} index={5} />
-            <Square hexCode={colorArray[6]} index={6} />
-            <Square hexCode={colorArray[7]} index={7} />
-            <Square hexCode={colorArray[8]} index={8} />
+            {Array.from({ length: 9 }, (_, i) => (
+              <Square
+                key={i}
+                hexCode={colorArray[i]}
+                index={i}
+                isFlashing={orderArray.includes(i)}
+              />
+            ))}
           </div>
           <p>
             <b>Highest Round: </b>
