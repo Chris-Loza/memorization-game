@@ -27,7 +27,7 @@ const Homepage = () => {
   const handleGameToggle = () => {
     if (!gameRunning) {
       const randomizedColors = colors.sort(() => Math.random() - 0.5);
-      const initialOrderArray = Array.from({ length: 3 }, () =>
+      const initialOrderArray = Array.from({ length: 4 }, () =>
         Math.floor(Math.random() * 9)
       );
       setOrderArray(initialOrderArray);
@@ -66,7 +66,8 @@ const Homepage = () => {
               <Square
                 key={i}
                 hexCode={colorArray[i]}
-                index={i}
+                squareIndex={i}
+                orderArrayIndex={orderArray.indexOf(i)}
                 isFlashing={orderArray.includes(i)}
                 flashKey={flashKey}
               />

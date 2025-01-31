@@ -2,25 +2,34 @@ import { GlobalContext } from "../../library/globalstate";
 import "./square.css";
 import { useContext, useEffect, useState } from "react";
 
-const Square = ({ hexCode, isFlashing, flashKey }) => {
+const Square = ({ hexCode, isFlashing, flashKey, orderArrayIndex, squareIndex }) => {
   const { orderArray, setOrderArray, comparisonArray, setComparisonArray } =
     useContext(GlobalContext);
   const [isActive, setIsActive] = useState(false);
+  const [fadeSquare, setFadeSquare] = useState(false);
 
   // useEffect to give flash class to flashing squares only for 2 seconds
   useEffect(() => {
+    setIsActive(false);
+    setFadeSquare(false);
     if (isFlashing) {
-      setIsActive(false);
-      setTimeout(() => setIsActive(true), 0);
+      setTimeout(() => {
+        setIsActive(true);
+        setFadeSquare(true);
+      }, orderArrayIndex * 2000);
+
       const flashTimer = setTimeout(() => {
         setIsActive(false);
-      }, 3000);
+        setFadeSquare(false);
+      }, orderArrayIndex * 2000 + 1500);
 
       return () => clearTimeout(flashTimer); // Cleanup function
     } else {
       setIsActive(false);
     }
   }, [isFlashing, flashKey]);
+
+  console.log("Square " + squareIndex + "Order Array index" + orderArrayIndex);
 
   let squareColor;
   switch (hexCode) {
@@ -57,7 +66,11 @@ const Square = ({ hexCode, isFlashing, flashKey }) => {
 
   return (
     <div className="squareContainer">
-      <div className={`square ${squareColor} ${isActive ? "flash" : ""}`}></div>
+      <div
+        className={`square ${fadeSquare ? squareColor : ""} ${
+          isActive ? "flash" : ""
+        }`}
+      ></div>
     </div>
   );
 };
