@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import "./homepage.css";
 import Square from "../Square/Square";
 import { GlobalContext } from "../../library/globalstate";
@@ -10,6 +10,7 @@ const Homepage = () => {
   const [gameRunning, setGameRunning] = useState(false);
   const { orderArray, setOrderArray, comparisonArray, setComparisonArray } =
     useContext(GlobalContext);
+  const [flashKey, setFlashKey] = useState(0);
 
   const colors = [
     "#FF0000",
@@ -31,12 +32,18 @@ const Homepage = () => {
       );
       setOrderArray(initialOrderArray);
       setColorArray(randomizedColors);
+      setFlashKey((prevKey) => prevKey + 1);
     } else {
       setColorArray([]);
     }
     setGameRunning(!gameRunning);
   };
 
+  useEffect(() => {
+    setOrderArray([...orderArray]);
+  }, [gameRunning]);
+
+  console.log(orderArray);
   return (
     <>
       <div className="parentContainer">
@@ -61,6 +68,7 @@ const Homepage = () => {
                 hexCode={colorArray[i]}
                 index={i}
                 isFlashing={orderArray.includes(i)}
+                flashKey={flashKey}
               />
             ))}
           </div>
