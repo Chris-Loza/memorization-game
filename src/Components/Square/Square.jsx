@@ -2,13 +2,7 @@ import { GlobalContext } from "../../library/globalstate";
 import "./square.css";
 import { useContext, useEffect, useState } from "react";
 
-const Square = ({
-  hexCode,
-  isFlashing,
-  flashKey,
-  orderArrayIndex,
-  squareIndex,
-}) => {
+const Square = ({ hexCode, flashKey, squareIndex, roundNumber }) => {
   const { orderArray, setOrderArray, comparisonArray, setComparisonArray } =
     useContext(GlobalContext);
   const [isActive, setIsActive] = useState(false);

@@ -27,6 +27,7 @@ const Homepage = () => {
 
   const handleGameToggle = () => {
     if (!gameRunning) {
+      setRoundNumber((prev) => prev + 1);
       const randomizedColors = colors.sort(() => Math.random() - 0.5);
       const initialOrderArray = Array.from({ length: 4 }, () =>
         Math.floor(Math.random() * 9)
@@ -53,20 +54,39 @@ const Homepage = () => {
       if (roundNumber > highestRoundNumber) {
         setHighestRoundNumber(roundNumber);
       }
-      toast.success("Round Won!")
+      toast.success("Round Won!");
       setTimeout(() => {
         setRoundNumber((prev) => prev + 1);
-        setOrderArray([...orderArray, Math.floor(Math.random() * 9)]);
-        setFlashKey((prevKey) => prevKey + 1)
-      }, 2000)
+        if (roundNumber > 30) {
+          setOrderArray([
+            ...orderArray,
+            Math.floor(Math.random() * 9),
+            Math.floor(Math.random() * 9),
+            Math.floor(Math.random() * 9),
+          ]);
+        } else if (roundNumber > 15) {
+          setOrderArray([
+            ...orderArray,
+            Math.floor(Math.random() * 9),
+            Math.floor(Math.random() * 9),
+          ]);
+        } else {
+          setOrderArray([
+            ...orderArray,
+            Math.floor(Math.random() * 9),
+          ]);
+        }
+        setFlashKey((prevKey) => prevKey + 1);
+      }, 2000);
     } else {
-      toast.error("Round Lost!")
+      toast.error("Round Lost!");
       if (roundNumber > highestRoundNumber) {
         setHighestRoundNumber(roundNumber);
-        toast.success("New High Score!")
+        toast.success("New High Score!");
       }
       setRoundNumber(0);
       setOrderArray([]);
+      setGameRunning(!gameRunning);
     }
     setComparisonArray([]);
   };
@@ -94,10 +114,9 @@ const Homepage = () => {
               <Square
                 key={i}
                 hexCode={colorArray[i]}
-                squareIndex={i}
-                orderArrayIndex={orderArray.indexOf(i)}
-                isFlashing={orderArray.includes(i)}
                 flashKey={flashKey}
+                squareIndex={i}
+                round={roundNumber}
               />
             ))}
           </div>
