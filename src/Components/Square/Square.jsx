@@ -38,9 +38,9 @@ const Square = ({
     }
   }, [flashKey]);
 
-  console.log(
-    "Square " + squareIndex + " Order Array index " + orderArrayIndex
-  );
+  // console.log(
+  //   "Square " + squareIndex + " Order Array index " + orderArrayIndex
+  // );
 
   let squareColor;
   switch (hexCode) {
@@ -79,8 +79,8 @@ const Square = ({
     setComparisonArray([...comparisonArray, squareIndex]);
   };
 
-  console.log(comparisonArray);
-  console.log("Order Array " + orderArray);
+  // console.log(comparisonArray);
+  // console.log("Order Array " + orderArray);
   return (
     <div className="squareContainer">
       <div

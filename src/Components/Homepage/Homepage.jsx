@@ -71,7 +71,7 @@ const Homepage = () => {
     setComparisonArray([]);
   };
 
-  console.log(orderArray);
+  // console.log(orderArray);
   return (
     <>
       <div className="parentContainer">
