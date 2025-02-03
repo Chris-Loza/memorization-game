@@ -2,7 +2,13 @@ import { GlobalContext } from "../../library/globalstate";
 import "./square.css";
 import { useContext, useEffect, useState } from "react";
 
-const Square = ({ hexCode, isFlashing, flashKey, orderArrayIndex, squareIndex }) => {
+const Square = ({
+  hexCode,
+  isFlashing,
+  flashKey,
+  orderArrayIndex,
+  squareIndex,
+}) => {
   const { orderArray, setOrderArray, comparisonArray, setComparisonArray } =
     useContext(GlobalContext);
   const [isActive, setIsActive] = useState(false);
@@ -29,7 +35,9 @@ const Square = ({ hexCode, isFlashing, flashKey, orderArrayIndex, squareIndex })
     }
   }, [isFlashing, flashKey]);
 
-  console.log("Square " + squareIndex + "Order Array index" + orderArrayIndex);
+  console.log(
+    "Square " + squareIndex + " Order Array index " + orderArrayIndex
+  );
 
   let squareColor;
   switch (hexCode) {
@@ -64,12 +72,21 @@ const Square = ({ hexCode, isFlashing, flashKey, orderArrayIndex, squareIndex })
       squareColor = "D9D9D9";
   }
 
+  const handleSquareClick = () => {
+    setComparisonArray([...comparisonArray, squareIndex]);
+  };
+
+  console.log(comparisonArray);
+  console.log("Order Array " + orderArray);
   return (
     <div className="squareContainer">
       <div
         className={`square ${fadeSquare ? squareColor : ""} ${
           isActive ? "flash" : ""
         }`}
+        onClick={handleSquareClick}
+        onMouseDown={() => setFadeSquare(true)}
+        onMouseUp={() => setFadeSquare(false)}
       ></div>
     </div>
   );

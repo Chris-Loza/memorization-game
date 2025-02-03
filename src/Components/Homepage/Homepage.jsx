@@ -43,6 +43,23 @@ const Homepage = () => {
     setOrderArray([...orderArray]);
   }, [gameRunning]);
 
+  const handleSubmit = () => {
+    const victory =
+      JSON.stringify(orderArray) === JSON.stringify(comparisonArray);
+
+    if (victory) {
+      window.alert("Success");
+      setRoundNumber((prev) => prev + 1);
+      setOrderArray([...orderArray, Math.floor(Math.random() * 9)]);
+      setFlashKey((prevKey) => prevKey + 1)
+    } else {
+      window.alert("Failed");
+      setRoundNumber(0);
+      setOrderArray([]);
+    }
+    setComparisonArray([]);
+  };
+
   console.log(orderArray);
   return (
     <>
@@ -113,7 +130,9 @@ const Homepage = () => {
             >
               {gameRunning ? "Stop" : "Start"}
             </button>
-            <button className="submitButton">Submit</button>
+            <button className="submitButton" onClick={handleSubmit}>
+              Submit
+            </button>
           </div>
         </div>
       </div>
