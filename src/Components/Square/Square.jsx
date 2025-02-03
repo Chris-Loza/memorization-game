@@ -15,25 +15,28 @@ const Square = ({
   const [fadeSquare, setFadeSquare] = useState(false);
 
   // useEffect to give flash class to flashing squares only for 2 seconds
+  // even if there are duplicates
+  const flashIndices = orderArray
+    .map((val, idx) => (val === squareIndex ? idx : -1))
+    .filter((idx) => idx !== -1);
   useEffect(() => {
     setIsActive(false);
     setFadeSquare(false);
-    if (isFlashing) {
-      setTimeout(() => {
-        setIsActive(true);
-        setFadeSquare(true);
-      }, orderArrayIndex * 2000);
 
-      const flashTimer = setTimeout(() => {
-        setIsActive(false);
-        setFadeSquare(false);
-      }, orderArrayIndex * 2000 + 1500);
+    if (flashIndices.length > 0) {
+      flashIndices.forEach((orderIndex) => {
+        setTimeout(() => {
+          setIsActive(true);
+          setFadeSquare(true);
+        }, orderIndex * 2000);
 
-      return () => clearTimeout(flashTimer); // Cleanup function
-    } else {
-      setIsActive(false);
+        setTimeout(() => {
+          setIsActive(false);
+          setFadeSquare(false);
+        }, orderIndex * 2000 + 1500);
+      });
     }
-  }, [isFlashing, flashKey]);
+  }, [flashKey]);
 
   console.log(
     "Square " + squareIndex + " Order Array index " + orderArrayIndex

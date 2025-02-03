@@ -6,7 +6,7 @@ import { GlobalContext } from "../../library/globalstate";
 const Homepage = () => {
   const [colorArray, setColorArray] = useState([]);
   const [roundNumber, setRoundNumber] = useState(0);
-  const [highestRoundNumber, setHighestRoundNumber] = useState(1000);
+  const [highestRoundNumber, setHighestRoundNumber] = useState(0);
   const [gameRunning, setGameRunning] = useState(false);
   const { orderArray, setOrderArray, comparisonArray, setComparisonArray } =
     useContext(GlobalContext);
@@ -35,6 +35,7 @@ const Homepage = () => {
       setFlashKey((prevKey) => prevKey + 1);
     } else {
       setColorArray([]);
+      setRoundNumber(0);
     }
     setGameRunning(!gameRunning);
   };
@@ -49,6 +50,9 @@ const Homepage = () => {
 
     if (victory) {
       window.alert("Success");
+      if (roundNumber > highestRoundNumber) {
+        setHighestRoundNumber(roundNumber);
+      }
       setRoundNumber((prev) => prev + 1);
       setOrderArray([...orderArray, Math.floor(Math.random() * 9)]);
       setFlashKey((prevKey) => prevKey + 1)
