@@ -1,5 +1,6 @@
 import "./App.css";
 import Homepage from "./Components/Homepage/Homepage";
+import Notifications from "./Components/Notifications/Notifications";
 import { GlobalProvider } from "./library/globalstate";
 
 function App() {
@@ -7,6 +8,7 @@ function App() {
     <GlobalProvider>
       <div className="homepageContainer">
         <Homepage />
+        <Notifications />
       </div>
     </GlobalProvider>
   );

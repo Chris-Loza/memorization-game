@@ -2,6 +2,7 @@ import { useContext, useEffect, useState } from "react";
 import "./homepage.css";
 import Square from "../Square/Square";
 import { GlobalContext } from "../../library/globalstate";
+import { toast } from "react-toastify";
 
 const Homepage = () => {
   const [colorArray, setColorArray] = useState([]);
@@ -49,15 +50,21 @@ const Homepage = () => {
       JSON.stringify(orderArray) === JSON.stringify(comparisonArray);
 
     if (victory) {
-      window.alert("Success");
       if (roundNumber > highestRoundNumber) {
         setHighestRoundNumber(roundNumber);
       }
-      setRoundNumber((prev) => prev + 1);
-      setOrderArray([...orderArray, Math.floor(Math.random() * 9)]);
-      setFlashKey((prevKey) => prevKey + 1)
+      toast.success("Round Won!")
+      setTimeout(() => {
+        setRoundNumber((prev) => prev + 1);
+        setOrderArray([...orderArray, Math.floor(Math.random() * 9)]);
+        setFlashKey((prevKey) => prevKey + 1)
+      }, 2000)
     } else {
-      window.alert("Failed");
+      toast.error("Round Lost!")
+      if (roundNumber > highestRoundNumber) {
+        setHighestRoundNumber(roundNumber);
+        toast.success("New High Score!")
+      }
       setRoundNumber(0);
       setOrderArray([]);
     }
